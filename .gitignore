@@ -1,0 +1,33 @@
+# ===== Go build artifacts =====
+/tmp/
+/cmd/server/main
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# ===== Go test / tooling =====
+*.test
+*.out
+
+# ===== Environment variables =====
+.env
+.env.*
+
+# ===== Database (local only) =====
+storage.db
+*.db
+
+# ===== Logs =====
+*.log
+
+# ===== OS / editor junk =====
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== Air / hot-reload tools =====
+.air.toml
