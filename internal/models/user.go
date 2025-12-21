@@ -25,8 +25,8 @@ type User struct {
 	Gender    GenderType `json:"gender" gorm:"default:'unspecified'"`
 	Role      RoleType   `json:"role" gorm:"default:'user'"`
 	Bio       string     `json:"bio"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
 }
 
 type UpdateUserRequest struct {

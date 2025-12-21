@@ -7,8 +7,16 @@ import (
 	db "github.com/Cypher012/OrganizeNoteAPi/internal/db"
 	routes "github.com/Cypher012/OrganizeNoteAPi/internal/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gosimple/slug"
 	"github.com/joho/godotenv"
 )
+
+func init() {
+	slug.Lowercase = true
+	slug.CustomSub = map[string]string{
+		"&": "and",
+	}
+}
 
 func main() {
 	if err := godotenv.Load(); err != nil {

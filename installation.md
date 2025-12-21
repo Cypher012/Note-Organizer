@@ -22,6 +22,11 @@ go get github.com/google/uuid
 # 8. Validator
 go get github.com/go-playground/validator/v10
 
-# 9. Clean up dependencies
+# 9. Slug
+go get github.com/gosimple/slug
+
+# 10. Faker
+
+# 11. Clean up dependencies
 go mod tidy
 

@@ -13,7 +13,7 @@ func JsonError(c *fiber.Ctx, status int, err error) error {
 	})
 }
 
-func GetUserID(c *fiber.Ctx) (string, error) {
+func GetUserID(c *fiber.Ctx) (userId string, err error) {
 	userId, ok := c.Locals("userId").(string)
 	if !ok || userId == "" {
 		return "", fiber.ErrUnauthorized
@@ -27,10 +27,10 @@ func SetAuthCookies(c *fiber.Ctx, atk, rtk *string) {
 			Name:     "atk",
 			Value:    *atk,
 			HTTPOnly: true,
-			Secure:   true,
+			Secure:   false,
 			SameSite: "Lax",
 			Path:     "/",
-			MaxAge:   60 * 15, // 15 minutes
+			MaxAge:   60 * 30, // 30 minutes
 		})
 	}
 
@@ -39,7 +39,7 @@ func SetAuthCookies(c *fiber.Ctx, atk, rtk *string) {
 			Name:     "rtk",
 			Value:    *rtk,
 			HTTPOnly: true,
-			Secure:   true,
+			Secure:   false,
 			SameSite: "Lax",
 			Path:     "/",
 			MaxAge:   3600 * 24 * 7, // 7 days

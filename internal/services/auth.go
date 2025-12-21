@@ -21,7 +21,7 @@ func GenerateJWT(user *models.User) (accessTokenString string, refreshTokenStrin
 	accessClaims := jwt.MapClaims{
 		"user_id":  user.ID,
 		"username": user.Username,
-		"exp":      time.Now().Add(24 * time.Hour).Unix(),
+		"exp":      time.Now().Add(15 * time.Minute).Unix(),
 	}
 
 	refreshClaims := jwt.MapClaims{

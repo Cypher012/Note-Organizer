@@ -10,6 +10,11 @@ func RegisterFolderRoutes(router fiber.Router, db *gorm.DB) {
 	folders := router.Group("/folder")
 
 	folders.Get("/", handlers.GetFoldersHandler(db))
-	folders.Get("/:id", handlers.GetFolderByIDHandler(db))
+	folders.Get("/:slug", handlers.GetFolderByIDHandler(db))
 	folders.Post("/", handlers.CreateFolderHandler(db))
+	folders.Put("/:slug", handlers.UpdateFolderHandler(db))
+	folders.Delete("/:slug", handlers.DeleteFolderHandler(db))
+
+	//  notes inside a folder
+	folders.Get("/:folderSlug/notes", handlers.GetNotesInFolderHandler(db))
 }
