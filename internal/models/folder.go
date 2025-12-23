@@ -18,6 +18,11 @@ type CreateFolderRequest struct {
 type UpdateFolderRequest struct {
 	Name string `json:"name" validate:"required"`
 }
+
+type GetFoldersResponse struct {
+	Count   int              `json:"count"`
+	Folders []FolderResponse `json:"folders"`
+}
 type FolderResponse struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`

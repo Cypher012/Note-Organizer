@@ -1,6 +1,8 @@
 # ===== Go build artifacts =====
 /tmp/
+/bin/
 /cmd/server/main
+/cmd/automate/main
 *.exe
 *.exe~
 *.dll
@@ -10,24 +12,47 @@
 # ===== Go test / tooling =====
 *.test
 *.out
+coverage.html
+coverage.out
+
+# ===== Go vendor (if not committed) =====
+# vendor/
 
 # ===== Environment variables =====
 .env
 .env.*
+.env.local
+.env.development
+.env.production
 
 # ===== Database (local only) =====
 storage.db
 *.db
+*.db-journal
+*.db-shm
+*.db-wal
 
 # ===== Logs =====
 *.log
+logs/
 
 # ===== OS / editor junk =====
 .DS_Store
+Thumbs.db
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 
 # ===== Air / hot-reload tools =====
 .air.toml
+
+# ===== Debugging =====
+debug
+*.prof
+*.pprof
+
+# ===== Temporary files =====
+*.tmp
+*.temp

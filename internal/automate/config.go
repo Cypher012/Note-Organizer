@@ -33,13 +33,7 @@ func NewTestUser(t bool) TestUser {
 	}
 }
 
-/*
-{
-    "username": "cipher",
-    "email": "ayoojoade@gmail.com",
-    "password": "Cipher2017"
-}
-*/
+func strPtr(s string) *string { return &s }
 
 func DoJSONRequest(
 	client *http.Client,

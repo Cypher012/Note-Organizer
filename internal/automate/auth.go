@@ -6,7 +6,7 @@ import (
 )
 
 func Register(client *http.Client, user TestUser) error {
-	url := UrlMap["register"]
+	url := UrlMap["register"]()
 
 	_, err := DoJSONRequest(
 		client,
@@ -23,7 +23,7 @@ func Register(client *http.Client, user TestUser) error {
 }
 
 func Login(client *http.Client, user TestUser) error {
-	url := UrlMap["login"]
+	url := UrlMap["login"]()
 
 	loginData := map[string]string{
 		"email":    user.Email,

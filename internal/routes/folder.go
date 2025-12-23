@@ -7,7 +7,7 @@ import (
 )
 
 func RegisterFolderRoutes(router fiber.Router, db *gorm.DB) {
-	folders := router.Group("/folder")
+	folders := router.Group("/folders")
 
 	folders.Get("/", handlers.GetFoldersHandler(db))
 	folders.Get("/:slug", handlers.GetFolderByIDHandler(db))
@@ -15,6 +15,4 @@ func RegisterFolderRoutes(router fiber.Router, db *gorm.DB) {
 	folders.Put("/:slug", handlers.UpdateFolderHandler(db))
 	folders.Delete("/:slug", handlers.DeleteFolderHandler(db))
 
-	//  notes inside a folder
-	folders.Get("/:folderSlug/notes", handlers.GetNotesInFolderHandler(db))
 }
